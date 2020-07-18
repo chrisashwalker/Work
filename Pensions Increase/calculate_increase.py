@@ -89,7 +89,7 @@ while not pens_inc_done or not gmp_done:
                         datetime.datetime.strptime(rates_line[1], '%d/%m/%Y'):
                     ca_multipliers[new_csv_line[0]] = float(rates_line[2])
 
-            # Store the increase amounts in a list to be entered later; column no against increase amount
+            # Store the increase amounts in a list to be entered later; column no. against increase amount
             for j in range(3, 18, 2):
                 wt_found = False
                 blank_wt = 99
