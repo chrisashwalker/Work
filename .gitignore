@@ -126,4 +126,4 @@ dmypy.json
 
 # Work specific
 .idea/
-.iml
+*.iml
