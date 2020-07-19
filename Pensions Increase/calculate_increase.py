@@ -8,6 +8,7 @@ ca_multipliers = {}
 new_rates_lines = []
 new_csv_lines = []
 new_gmp_lines = []
+# TODO: Input dates and file paths
 increase_date = datetime.datetime.strptime('10/04/2021', '%d/%m/%Y')
 increase_end_date = datetime.datetime.strptime('31/12/9999', '%d/%m/%Y')
 gmp_date = datetime.datetime.strptime('06/04/2021', '%d/%m/%Y')
