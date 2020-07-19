@@ -44,9 +44,8 @@ public class CalculateIncrease{
             pens_inc_run = true;
         }
 
-        // TODO: Relative paths are temporary
         try {
-            var f = new File("../../multipliers.csv");
+            var f = new File("C:\\Users\\Christopher\\OneDrive\\Documents\\Code\\Work\\PI Java\\multipliers.csv");
             var scan = new Scanner(f);
             while (scan.hasNextLine()) {
                 rates_lines.addAll(Arrays.asList(scan.nextLine().split(",")));
@@ -58,7 +57,7 @@ public class CalculateIncrease{
         }
 
         try {
-            var f = new File("../../wage_types.csv");
+            var f = new File("C:\\Users\\Christopher\\OneDrive\\Documents\\Code\\Work\\PI Java\\wage_types.csv");
             var scan = new Scanner(f);
             while (scan.hasNextLine()) {
                 if (scan.nextLine().contains("FS")) {
@@ -76,23 +75,48 @@ public class CalculateIncrease{
                 types_lines.addAll(Arrays.asList(scan.nextLine().split(",")));
             }
             types_lines.remove(0);
-
         }
         catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
 
         try {
-            var f = new File("../../pay_records.csv");
+            var f = new File("C:\\Users\\Christopher\\OneDrive\\Documents\\Code\\Work\\PI Java\\pay_records.csv");
             var scan = new Scanner(f);
             while (scan.hasNextLine()) {
                 new_csv_lines.addAll(Arrays.asList(scan.nextLine().split(",")));
             }
             new_csv_lines.remove(0);
-
         }
         catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
+
+        while (!pens_inc_done || !gmp_done) {
+            var inc_list = new ArrayList<String>();
+            if (pens_inc_run & ! pens_inc_done) {
+                for (var i = 0; i <= new_csv_lines.size(); i++) {
+                    for (var j = 0; j <= rates_lines.size(); j++) {
+                        // TODO: Add in other comparison
+                        if (LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
+                                .isBefore(LocalDate.parse(new_csv_lines.get(i).split(",")[19])) ||
+                                LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
+                                        .isEqual(LocalDate.parse(new_csv_lines.get(i).split(",")[19]))) {
+                            fs_multipliers.put(new_csv_lines.get(i).split(",")[0],
+                                    rates_lines.get(j).split(",")[2]);
+                        }
+                        if (LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
+                                .isBefore(LocalDate.parse(new_csv_lines.get(i).split(",")[19])) ||
+                                LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
+                                        .isEqual(LocalDate.parse(new_csv_lines.get(i).split(",")[19]))) {
+                            fs_multipliers.put(new_csv_lines.get(i).split(",")[0],
+                                    rates_lines.get(j).split(",")[2]);
+                        }
+                    }
+                }
+
+            }
+        }
+
         }
         }
