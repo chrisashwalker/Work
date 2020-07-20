@@ -94,7 +94,7 @@ public class CalculateIncrease{
 
         while (!pens_inc_done || !gmp_done) {
             var inc_list = new ArrayList<String>();
-            if (pens_inc_run & ! pens_inc_done) {
+            if (pens_inc_run && !pens_inc_done) {
                 for (var i = 0; i <= new_csv_lines.size(); i++) {
                     for (var j = 0; j <= rates_lines.size(); j++) {
                         // TODO: Add in other comparison
