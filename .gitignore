@@ -126,6 +126,3 @@ dmypy.json
 
 # Work specific
 .idea/
-*.iml
-*.class
-/PI Java/*.csv
