@@ -97,21 +97,23 @@ public class CalculateIncrease{
             if (pens_inc_run && !pens_inc_done) {
                 for (var i = 0; i <= new_csv_lines.size(); i++) {
                     for (var j = 0; j <= rates_lines.size(); j++) {
-                        // TODO: Add in other comparison
-                        if (LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
-                                .isBefore(LocalDate.parse(new_csv_lines.get(i).split(",")[19])) ||
-                                LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
-                                        .isEqual(LocalDate.parse(new_csv_lines.get(i).split(",")[19]))) {
+                        if (!LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
+                                .isAfter(LocalDate.parse(new_csv_lines.get(i).split(",")[19])) &&
+                                !LocalDate.parse(new_csv_lines.get(i).split(",")[19], date_format)
+                                        .isAfter(LocalDate.parse(rates_lines.get(j).split(",")[0]))) {
                             fs_multipliers.put(new_csv_lines.get(i).split(",")[0],
                                     rates_lines.get(j).split(",")[2]);
                         }
-                        if (LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
-                                .isBefore(LocalDate.parse(new_csv_lines.get(i).split(",")[19])) ||
-                                LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
-                                        .isEqual(LocalDate.parse(new_csv_lines.get(i).split(",")[19]))) {
+                        if (!LocalDate.parse(rates_lines.get(j).split(",")[0], date_format)
+                                .isAfter(LocalDate.parse(new_csv_lines.get(i).split(",")[20])) &&
+                                !LocalDate.parse(new_csv_lines.get(i).split(",")[20], date_format)
+                                        .isAfter(LocalDate.parse(rates_lines.get(j).split(",")[0]))) {
                             fs_multipliers.put(new_csv_lines.get(i).split(",")[0],
                                     rates_lines.get(j).split(",")[2]);
                         }
+                    }
+                    for (var j = 3; j <= 18; j = j + 2) {
+                        
                     }
                 }
 
