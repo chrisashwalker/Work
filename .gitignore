@@ -125,4 +125,13 @@ dmypy.json
 .pyre/
 
 # Work specific
-.idea/
+Join Dates/.idea/
+Join Dates/checked_dates.csv
+Join Dates/dates.csv
+MDC/.idea/
+MDC/out/
+Pensions Increase/.idea/
+Pensions Increase/multipliers.csv
+Pensions Increase/new_pay_records.csv
+Pensions Increase/pay_records.csv
+Pensions Increase/wage_types.csv
